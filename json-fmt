@@ -1,0 +1,19 @@
+#!/usr/bin/env node
+
+const fs = require('fs')
+const stringify = require('./lib/json-stringify')
+
+const buffer = fs.readFileSync(0)
+let json
+try {
+  let raw = buffer.toString()
+  // console.log(raw)
+  json = JSON.parse(raw)
+} catch (e) {
+  console.error('problems')
+}
+// console.log(JSON.stringify(json, null,2))
+let formatted = stringify(json, {maxLength: 120}).replace(/\\"/g, '"').replace(/\n\n/g, '\n')
+// remove leading and trailing (") quotes
+const lines = formatted.split('\\n')
+lines.forEach(line => line.length && console.log(line))

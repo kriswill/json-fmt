@@ -1,0 +1,11 @@
+{
+  "name": "json-fmt",
+  "version": "0.1.0",
+  "description": "formats JSON files in a compact form",
+  "main": "json-fmt",
+  "author": "Kris Williams <@kris_will>",
+  "license": "MIT",
+  "bin": {
+    "json-fmt": "./json-fmt"
+  }
+}
